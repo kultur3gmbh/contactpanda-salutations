@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/kultur3gmbh/contactpanda-salutations/main/salutations.schema.json",
+  "title": "ContactPanda Salutation Library",
+  "type": "object",
+  "required": [
+    "version",
+    "entries"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entries": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "first_name",
+          "salutation"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 190
+          },
+          "salutation": {
+            "type": "string",
+            "enum": [
+              "mr",
+              "ms",
+              "family",
+              "neutral"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
